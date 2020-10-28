@@ -18,8 +18,10 @@
 <div class="gv-sub-content">
   <form name="supportTicketCtrl.formTicket" ng-submit="supportTicketCtrl.create()" novalidate>
     <div class="gv-forms" layout="column">
-      <h1>{{'support.ticket.title' | translate}}</h1>
-
+      <div class="gv-forms-header">
+        <h1>{{'support.ticket.title' | translate}}</h1>
+        <a ui-sref="management.support.tickets">See tickets history</a>
+      </div>
       <h5 ng-if="!supportTicketCtrl.userHasAnEmail" style="color: red;margin-left: 10px;">
         <ng-md-icon icon="warning" class="gv-warning"></ng-md-icon>
         <span>{{'support.ticket.userWithoutEmail.message' | translate}}</span>
@@ -53,13 +55,13 @@
               <span>{{'support.ticket.copyToSender' | translate}}</span>
             </md-checkbox>
           </md-input-container>
-          
+
           <div class="md-actions" layout="row">
-            <md-button type="submit" class="md-raised md-primary" 
+            <md-button type="submit" class="md-raised md-primary"
             ng-disabled="supportTicketCtrl.formTicket.$pristine || supportTicketCtrl.formTicket.$invalid || !supportTicketCtrl.userHasAnEmail"
             aria-label="create-ticket">{{'support.ticket.create' | translate}}</md-button>
           </div>
-        </div>        
+        </div>
       </div>
     </div>
   </form>
